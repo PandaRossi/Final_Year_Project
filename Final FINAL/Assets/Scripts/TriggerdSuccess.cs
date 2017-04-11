@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,17 @@ public class TriggerdSuccess : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+=======
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TriggerdSuccess : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+		
+>>>>>>> master
 	}
 
     void OnTriggerEnter(Collider coll)
@@ -19,5 +31,10 @@ public class TriggerdSuccess : MonoBehaviour {
         }
         Debug.Log("Jumped Over Car");
 
+<<<<<<< HEAD
     }
 }
+=======
+    }
+}
+>>>>>>> master

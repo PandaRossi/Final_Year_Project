@@ -7,6 +7,7 @@ public class TriggeredFail : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
+<<<<<<< HEAD
 	}
 
     void OnTriggerEnter(Collider coll)
@@ -19,5 +20,19 @@ public class TriggeredFail : MonoBehaviour {
         }
         Debug.Log("Hit by Car");
 
+=======
+	}
+
+    void OnTriggerEnter(Collider coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+
+          
+
+        }
+        Debug.Log("Hit by Car");
+
+>>>>>>> master
     }
 }
