@@ -10,18 +10,21 @@ public class PlayerMotor : MonoBehaviour
     private CharacterController controller;
     private Vector3 moveVector;
 
-    private float speed = 7.0f;
+    public float speed = 7.0f;
     private float verticalVelocity = 0.0f;
-    private float gravity = 12.0f;
-    private float jumpForce = 10.0f;
+    public float gravity = 12.0f;
+    public float jumpForce = 10.0f;
 
     public bool canJump;
+    public bool temp;
+
+    
 
     // Use this for initialization
     void Start()
     {
         controller = GetComponent<CharacterController>();
-      
+        temp = false;       
 
     }
 
@@ -31,16 +34,20 @@ public class PlayerMotor : MonoBehaviour
 
         if (controller.isGrounded)                                               //Checking to see if the player is on the ground
         {
+            
             verticalVelocity = -gravity * Time.deltaTime;
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") || temp)
             {
-                verticalVelocity = jumpForce;                                   //If the player hits the spacebar, the character will jump
+                verticalVelocity = jumpForce;
+                temp = false;   
             }
         }
         else
         {
             verticalVelocity -= gravity * Time.deltaTime;                       //If the player is not on the ground, gravity will push them back down
         }
+
+        
 
         moveVector = new Vector3(0, verticalVelocity, 0);
 
@@ -51,5 +58,13 @@ public class PlayerMotor : MonoBehaviour
         controller.Move(moveVector * Time.deltaTime);                           //Updating the movements of the player each frame
     }
 
+    public void Jump()
+    {
+        temp = true;
+    }
 
+    public void Reset()
+    {
+        temp = false;
+    }
 }
